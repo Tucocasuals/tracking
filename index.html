@@ -37,11 +37,11 @@
       z-index: 1;
       text-align: center;
       width: 90%;
-      max-width: 500px;
+      max-width: 600px;
     }
 
     h1 {
-      font-size: 32px;
+      font-size: 40px;
       margin-bottom: 5px;
       font-weight: bold;
     }
@@ -49,31 +49,36 @@
     .subtitle {
       color: #ddd;
       margin-bottom: 25px;
-      font-size: 14px;
+      font-size: 18px;
     }
 
     .box {
       background: rgba(0,0,0,0.7);
-      padding: 20px;
+      padding: 25px;
       border-radius: 15px;
       backdrop-filter: blur(10px);
     }
 
+    .box p {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
     input {
-      width: 65%;
-      padding: 12px;
+      width: 70%;
+      padding: 15px;
       border-radius: 8px;
       border: none;
-      font-size: 16px;
+      font-size: 18px;
     }
 
     button {
-      padding: 12px 18px;
+      padding: 14px 22px;
       border-radius: 8px;
       border: none;
       background: #22c55e;
       color: white;
-      font-size: 16px;
+      font-size: 18px;
       margin-left: 5px;
       cursor: pointer;
     }
@@ -83,31 +88,31 @@
     }
 
     .paste-btn {
-      margin-top: 10px;
+      margin-top: 12px;
       background: #333;
-      padding: 6px 12px;
+      padding: 8px 14px;
       border-radius: 6px;
       display: inline-block;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 16px;
     }
 
     #result {
-      margin-top: 20px;
+      margin-top: 25px;
       display: none;
       background: white;
       color: black;
-      padding: 15px;
+      padding: 18px;
       border-radius: 10px;
       text-align: left;
-      font-size: 14px;
+      font-size: 16px;
     }
 
     .again {
-      margin-top: 15px;
+      margin-top: 18px;
       color: #ccc;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 15px;
     }
 
   </style>
@@ -124,7 +129,7 @@
 <div class="box">
   <p>Enter contact number as on address (+91 optional)</p>
 
-  <input type="text" id="number" placeholder="9995900420">
+  <input type="text" id="number" placeholder="9633150834">
   <button onclick="getData()">Search</button>
 
   <div class="paste-btn" onclick="pasteText()">Paste</div>
@@ -141,7 +146,7 @@
     function getData() {
       const number = document.getElementById("number").value;
 
-      const url = "https://script.google.com/macros/s/AKfycbwGFOsIRMraWiEbcF7pPkgQQNF6KSRJcmUzm_fPpb2Whp3NcRW0GqHPUmrf40612bPi/exec?number=" + number;
+      const url = "YOUR_SCRIPT_URL_HERE?number=" + number;
 
       fetch(url)
         .then(res => res.json())
@@ -163,18 +168,4 @@
 
     function resetPage() {
       document.getElementById("result").style.display = "none";
-      document.getElementById("number").value = "";
-    }
-
-    async function pasteText() {
-      try {
-        const text = await navigator.clipboard.readText();
-        document.getElementById("number").value = text;
-      } catch {
-        alert("Paste not allowed");
-      }
-    }
-  </script>
-
-</body>
-</html>
+      document.getElementById("number").va
