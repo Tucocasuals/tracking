@@ -6,20 +6,24 @@
 
   <style>
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-   background: url('watch.jpg') no-repeat center center;
-background-size: 90%;
-background-color: black;
-     display: flex;
-align-items: center;
-justify-content: center;
-    }
+  margin: 0;
+  font-family: Arial, sans-serif;
+
+  background: url('watch.jpg') no-repeat center center fixed;
+  background-size: cover;
+
+  height: 100vh;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
     /* Dark overlay */
-    body::before {
+   body::before {
   content: "";
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
