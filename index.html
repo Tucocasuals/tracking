@@ -146,7 +146,7 @@
     function getData() {
       const number = document.getElementById("number").value;
 
-      const url = "YOUR_SCRIPT_URL_HERE?number=" + number;
+      const url = "https://script.google.com/macros/s/AKfycbwGFOsIRMraWiEbcF7pPkgQQNF6KSRJcmUzm_fPpb2Whp3NcRW0GqHPUmrf40612bPi/exec?number=" + number;
 
       fetch(url)
         .then(res => res.json())
