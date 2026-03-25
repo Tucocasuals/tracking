@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Tracking App</title>
+</head>
+<body>
+
+  <h2>Track Package</h2>
+
+  <input type="text" id="number" placeholder="Enter number">
+  <button onclick="getData()">Search</button>
+
+  <p id="result"></p>
+
+  <script>
+    function getData() {
+      const number = document.getElementById("number").value;
+
+      const url = "https://script.google.com/macros/s/AKfycbwGFOsIRMraWiEbcF7pPkgQQNF6KSRJcmUzm_fPpb2Whp3NcRW0GqHPUmrf40612bPi/exec?number=" + number;
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("result").innerHTML =
+            "Name: " + data.name + "<br>" +
+            "Tracking: " + data.tracking + "<br>" +
+            "Courier: " + data.courier + "<br>" +
+            "Status: " + data.status;
+        })
+        .catch(error => {
+          document.getElementById("result").innerText = "Error!";
+        });
+    }
+  </script>
+
+</body>
+</html>
