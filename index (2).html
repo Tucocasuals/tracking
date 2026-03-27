@@ -20,7 +20,6 @@
       justify-content: center;
     }
 
-    /* Dark overlay */
     body::before {
       content: "";
       position: fixed;
@@ -95,10 +94,14 @@
     #result {
       margin-top: 20px;
       display: none;
+    }
+
+    .order-card {
       background: white;
       color: black;
       padding: 15px;
       border-radius: 10px;
+      margin-bottom: 15px;
       text-align: left;
       font-size: 14px;
     }
@@ -149,20 +152,31 @@
           document.getElementById("result").style.display = "block";
 
           if (data.error) {
-            document.getElementById("result").innerText = "No tracking found";
+            document.getElementById("result").innerText = data.error;
           } else {
-            document.getElementById("result").innerHTML =
-              "Date: " + (data.date || "-") + "<br><br>" +
-              "Customer Name: " + data.name + "<br><br>" +
-              "AWB: " + data.tracking + "<br><br>" +
-              "Courier Name: " + data.courier + "<br><br>" +
-              "Status: " + data.status;
+            let output = "";
+
+            data.forEach((item, index) => {
+              output += `
+                <div class="order-card">
+                  <b>Order ${index + 1}</b><br><br>
+                  Date: ${item.date}<br><br>
+                  Customer Name: ${item.name}<br><br>
+                  AWB: ${item.tracking}<br><br>
+                  Courier Name: ${item.courier}<br><br>
+                  Status: ${item.status}
+                </div>
+              `;
+            });
+
+            document.getElementById("result").innerHTML = output;
           }
         });
     }
 
     function resetPage() {
       document.getElementById("result").style.display = "none";
+      document.getElementById("result").innerHTML = "";
       document.getElementById("number").value = "";
     }
 
