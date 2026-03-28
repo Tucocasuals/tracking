@@ -19,7 +19,6 @@
       justify-content: center;
     }
 
-    /* ✅ VERY LIGHT OVERLAY (so image shows clearly) */
     body::before {
       content: "";
       position: fixed;
@@ -51,7 +50,6 @@
       font-size: 14px;
     }
 
-    /* ✅ LIGHTER CARD (glass feel) */
     .box {
       background: rgba(255,255,255,0.1);
       padding: 20px;
@@ -112,6 +110,7 @@
     #result {
       margin-top: 20px;
       display: none;
+      color: white;
     }
 
     .order-card {
@@ -131,7 +130,6 @@
       font-size: 14px;
     }
 
-    /* Slight mobile zoom (not too big) */
     @media (max-width: 500px) {
       .main {
         transform: scale(1.04);
@@ -168,7 +166,14 @@
     const API_KEY = "tucocasuals_secure_2026";
 
     function getData() {
-      const number = document.getElementById("number").value;
+      let number = document.getElementById("number").value;
+
+      // ✅ BLOCK EMPTY INPUT
+      if (!number || number.trim() === "") {
+        document.getElementById("result").style.display = "block";
+        document.getElementById("result").innerText = "Please enter your phone number";
+        return;
+      }
 
       const url = "https://script.google.com/macros/s/AKfycbwGFOsIRMraWiEbcF7pPkgQQNF6KSRJcmUzm_fPpb2Whp3NcRW0GqHPUmrf40612bPi/exec?number=" 
         + number + "&key=" + API_KEY;
