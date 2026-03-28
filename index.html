@@ -164,7 +164,8 @@
                   Customer Name: ${item.name}<br><br>
                   AWB: ${item.tracking}<br><br>
                   Courier Name: ${item.courier}<br><br>
-                  Status: ${item.status}
+                  Status: ${item.status}<br>
+                  ${item.warranty ? "<br><b style='color:green'>" + item.warranty + "</b>" : ""}
                 </div>
               `;
             });
