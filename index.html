@@ -3,7 +3,7 @@
 <head>
   <title>Tucocasuals Tracking</title>
 
-  <!-- ✅ MOBILE FIX -->
+  <!-- Mobile Fix -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -19,6 +19,7 @@
       justify-content: center;
     }
 
+    /* ✅ LIGHTER OVERLAY */
     body::before {
       content: "";
       position: fixed;
@@ -26,7 +27,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.4);
       z-index: 0;
     }
 
@@ -90,7 +91,7 @@
       font-size: 14px;
     }
 
-    /* 🔄 LOADER */
+    /* Loader */
     .loader {
       border: 4px solid #ccc;
       border-top: 4px solid #22c55e;
@@ -129,10 +130,10 @@
       font-size: 14px;
     }
 
-    /* ✅ MOBILE ZOOM */
+    /* ✅ SMALLER MOBILE ZOOM */
     @media (max-width: 500px) {
       .main {
-        transform: scale(1.1);
+        transform: scale(1.05);
       }
     }
 
@@ -155,7 +156,7 @@
       <div class="paste-btn" onclick="pasteText()">Paste</div>
     </div>
 
-    <!-- 🔄 LOADER -->
+    <!-- Loader -->
     <div class="loader" id="loader"></div>
 
     <div id="result"></div>
